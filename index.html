@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruth Kohn — Certified Court Interpreter & Translator</title>
+<meta name="description" content="Ruth Kohn: certified court interpreter and translator working in English, Yiddish, Hebrew, and Polish. Document translation, courtroom interpretation, depositions, simultaneous interpretation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14171f;
+    --ink-soft:#1d222d;
+    --paper:#e9e2cf;
+    --paper-dim:#b9ae90;
+    --oxblood:#8a3230;
+    --brass:#b3902f;
+    --line: rgba(233,226,207,0.16);
+    --radius: 2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  .display{font-family:'Fraunces', serif;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.08em; text-transform:uppercase;}
+
+  ::selection{background:var(--oxblood); color:var(--paper);}
+
+  /* ===== Texture ===== */
+  .paper-noise{
+    position:fixed; inset:0; pointer-events:none; z-index:0; opacity:0.05; mix-blend-mode:overlay;
+    background-image:
+      radial-gradient(circle at 20% 30%, #fff 0.5px, transparent 0.5px),
+      radial-gradient(circle at 60% 70%, #fff 0.5px, transparent 0.5px);
+    background-size: 3px 3px, 4px 4px;
+  }
+
+  /* ===== Nav ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 22px 6vw;
+    background:linear-gradient(to bottom, rgba(20,23,31,0.92), rgba(20,23,31,0));
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    font-family:'Fraunces', serif; font-size:1.05rem; letter-spacing:0.02em;
+  }
+  .brand-mark{
+    width:30px;height:30px;border:1px solid var(--brass);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--brass);
+  }
+  nav ul{list-style:none; display:flex; gap:2.4rem; margin:0; padding:0;}
+  nav a{
+    text-decoration:none; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--paper-dim); font-family:'IBM Plex Mono',monospace; position:relative; padding-bottom:4px;
+  }
+  nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:width .3s ease;}
+  nav a:hover{color:var(--paper);}
+  nav a:hover::after{width:100%;}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);color:var(--paper);padding:8px 10px;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;cursor:pointer;}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:center;
+    padding:0 6vw; z-index:1;
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, transparent 0%, var(--ink) 96%),
+      repeating-linear-gradient(0deg, transparent, transparent 38px, var(--line) 38px, var(--line) 39px);
+    pointer-events:none; opacity:0.5;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:1.6rem; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before{content:'';width:34px;height:1px;background:var(--brass);}
+  h1.hero-name{
+    font-family:'Fraunces', serif; font-weight:500; font-size:clamp(3.2rem, 10vw, 7.6rem);
+    line-height:0.96; margin:0 0 0.6rem 0; letter-spacing:-0.01em;
+  }
+  .hero-sub{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:400; font-size:clamp(1.1rem,2.4vw,1.55rem);
+    color:var(--paper-dim); max-width:640px; line-height:1.5; margin:0 0 2.6rem 0;
+  }
+  .lang-row{
+    display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    max-width:760px;
+  }
+  .lang-row span{
+    padding:14px 22px 14px 0; margin-right:22px; font-family:'IBM Plex Mono',monospace; font-size:0.8rem;
+    letter-spacing:0.06em; color:var(--paper); border-right:1px solid var(--line); display:flex; align-items:baseline; gap:8px;
+  }
+  .lang-row span:last-child{border-right:none;}
+  .lang-row .script{font-family:'Frank Ruhl Libre', serif; font-size:1rem; color:var(--brass);}
+
+  .seal{
+    position:absolute; right:6vw; bottom:8vh; width:132px; height:132px; opacity:0.85;
+    animation: spin 60s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .seal{animation:none;} }
+  .seal circle, .seal path, .seal text{ fill:none; stroke:var(--brass); }
+  .seal text{ fill:var(--brass); stroke:none; font-family:'IBM Plex Mono', monospace; }
+
+  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+  .scroll-cue{
+    position:absolute; left:6vw; bottom:6vh; font-family:'IBM Plex Mono',monospace; font-size:0.68rem;
+    letter-spacing:0.18em; color:var(--paper-dim); text-transform:uppercase; display:flex; align-items:center; gap:10px;
+  }
+  .scroll-cue::after{content:'';width:1px;height:34px;background:linear-gradient(var(--brass), transparent);}
+
+  /* ===== Section shared ===== */
+  section{ position:relative; z-index:1; padding:9rem 6vw; max-width:1400px; margin:0 auto; }
+  .section-head{ display:flex; align-items:baseline; gap:1.4rem; margin-bottom:4rem; }
+  .section-num{ font-family:'IBM Plex Mono',monospace; color:var(--oxblood); font-size:0.85rem; }
+  .section-title{ font-family:'Fraunces',serif; font-weight:500; font-size:clamp(2rem,4vw,3rem); margin:0; }
+  .section-title em{color:var(--brass); font-style:italic;}
+  .divider{height:1px; background:var(--line); width:100%;}
+
+  /* ===== Exhibits (Services) ===== */
+  .exhibits{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .exhibit{ background:var(--ink); padding:2.6rem 2rem; transition:background .35s ease; opacity:0; transform:translateY(18px); }
+  .exhibit.reveal{opacity:1; transform:translateY(0); transition:opacity .7s ease, transform .7s ease, background .35s ease;}
+  .exhibit:hover{ background:var(--ink-soft); }
+  .exhibit-tag{ font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--brass); letter-spacing:0.14em; margin-bottom:1.6rem; display:block; }
+  .exhibit h3{ font-family:'Fraunces',serif; font-weight:500; font-size:1.4rem; margin:0 0 0.9rem 0; }
+  .exhibit p{ font-size:0.92rem; line-height:1.65; color:var(--paper-dim); margin:0; }
+
+  /* ===== Record (Credentials timeline) ===== */
+  .docket{ border-top:1px solid var(--line); }
+  .entry{
+    display:grid; grid-template-columns:140px 1fr; gap:3rem; padding:2.6rem 0; border-bottom:1px solid var(--line);
+    opacity:0; transform:translateY(18px);
+  }
+  .entry.reveal{opacity:1; transform:translateY(0); transition:opacity .7s ease, transform .7s ease;}
+  .entry-mark{ font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--oxblood); padding-top:0.3rem; }
+  .entry h3{ font-family:'Fraunces',serif; font-weight:500; font-size:1.5rem; margin:0 0 0.7rem 0; }
+  .entry p{ color:var(--paper-dim); line-height:1.7; max-width:640px; margin:0; font-size:0.98rem; }
+
+  /* ===== Languages ===== */
+  .lang-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .lang-card{ background:var(--ink); padding:3rem 1.8rem; text-align:center; opacity:0; transform:translateY(18px); }
+  .lang-card.reveal{opacity:1; transform:translateY(0); transition:opacity .7s ease, transform .7s ease;}
+  .lang-script{ font-family:'Frank Ruhl Libre', serif; font-size:2.6rem; color:var(--brass); margin-bottom:1rem; display:block; }
+  .lang-name{ font-family:'Fraunces',serif; font-size:1.15rem; margin:0 0 0.3rem 0; }
+  .lang-note{ font-family:'IBM Plex Mono',monospace; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper-dim); }
+
+  /* ===== Contact ===== */
+  .contact-wrap{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:5rem; align-items:start; }
+  .contact-copy p{ color:var(--paper-dim); line-height:1.75; font-size:1rem; max-width:480px; }
+  .stamp-card{
+    border:1px solid var(--brass); padding:2.6rem; position:relative;
+  }
+  .stamp-card::before{
+    content:'CERTIFIED'; position:absolute; top:-11px; left:2rem; background:var(--ink); padding:0 10px;
+    font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.18em; color:var(--brass);
+  }
+  .field{ margin-bottom:1.3rem; }
+  .field-label{ font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--paper-dim); display:block; margin-bottom:0.4rem; }
+  .field-value{ font-family:'Fraunces', serif; font-size:1.15rem; color:var(--paper); border-bottom:1px dashed var(--line); padding-bottom:0.5rem; }
+  .field-value.placeholder{ color:var(--paper-dim); font-style:italic; font-size:1rem; }
+
+  footer{ position:relative; z-index:1; padding:3rem 6vw; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+  footer p{ margin:0; font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.08em; color:var(--paper-dim); text-transform:uppercase; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 980px){
+    nav ul{display:none;}
+    .nav-toggle{display:block;}
+    .exhibits{grid-template-columns:1fr 1fr;}
+    .lang-grid{grid-template-columns:1fr 1fr;}
+    .contact-wrap{grid-template-columns:1fr; gap:3rem;}
+    .entry{grid-template-columns:1fr; gap:0.6rem;}
+    section{padding:6rem 6vw;}
+  }
+  @media (max-width:560px){
+    .exhibits{grid-template-columns:1fr;}
+    .lang-grid{grid-template-columns:1fr;}
+    .seal{display:none;}
+    .lang-row span{padding:12px 14px 12px 0; margin-right:14px; font-size:0.72rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="paper-noise"></div>
+
+<header>
+  <div class="brand">
+    <span class="brand-mark">RK</span>
+    <span>Ruth Kohn</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#exhibits">Services</a></li>
+      <li><a href="#record">Credentials</a></li>
+      <li><a href="#languages">Languages</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <button class="nav-toggle" id="navToggle">Menu</button>
+</header>
+
+<section class="hero" id="top">
+  <p class="eyebrow">Certified Court Interpreter &amp; Translator</p>
+  <h1 class="hero-name">Ruth Kohn</h1>
+  <p class="hero-sub">Testimony, documents, and diplomacy carried faithfully between languages — for courts, agencies, and delegations that cannot afford an imprecise word.</p>
+  <div class="lang-row">
+    <span>English</span>
+    <span class="script">יידיש</span><span>Yiddish</span>
+    <span class="script">עברית</span><span>Hebrew</span>
+    <span>Polski · Polish</span>
+  </div>
+  <svg class="seal" viewBox="0 0 140 140">
+    <circle cx="70" cy="70" r="64" stroke-width="1"/>
+    <circle cx="70" cy="70" r="54" stroke-width="0.75"/>
+    <path id="sealPath" d="M 70,70 m -50,0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" />
+    <text font-size="8.2" letter-spacing="3">
+      <textPath href="#sealPath" startOffset="0%">CERTIFIED · POŚWIADCZONY · מאושר · באשטעטיקט ·</textPath>
+    </text>
+  </svg>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<section id="exhibits">
+  <div class="section-head">
+    <span class="section-num">§ I</span>
+    <h2 class="section-title">Areas of <em>practice</em></h2>
+  </div>
+  <div class="exhibits">
+    <div class="exhibit">
+      <span class="exhibit-tag">Exhibit A</span>
+      <h3>Document Translation</h3>
+      <p>Certified translation of legal, medical, personal, and government documents, prepared to the standard that courts and agencies require and ready to be notarized or filed.</p>
+    </div>
+    <div class="exhibit">
+      <span class="exhibit-tag">Exhibit B</span>
+      <h3>Courtroom Interpretation</h3>
+      <p>In-person interpretation for hearings and trials, holding the register and precision of testimony under oath in English, Yiddish, Hebrew, or Polish.</p>
+    </div>
+    <div class="exhibit">
+      <span class="exhibit-tag">Exhibit C</span>
+      <h3>Depositions</h3>
+      <p>Consecutive interpretation for depositions and sworn statements, working closely with attorneys and court reporters to keep the record exact.</p>
+    </div>
+    <div class="exhibit">
+      <span class="exhibit-tag">Exhibit D</span>
+      <h3>Simultaneous Interpretation</h3>
+      <p>Real-time simultaneous interpretation for conferences, diplomatic proceedings, and delegation visits, where the gap between languages has to disappear entirely.</p>
+    </div>
+  </div>
+</section>
+
+<section id="record">
+  <div class="section-head">
+    <span class="section-num">§ II</span>
+    <h2 class="section-title">On the <em>record</em></h2>
+  </div>
+  <div class="docket">
+    <div class="entry">
+      <span class="entry-mark">DELEGATION</span>
+      <div>
+        <h3>U.S. Department of State</h3>
+        <p>Engaged as an interpretation liaison to Polish and Israeli delegations across multiple assignments, supporting diplomatic exchanges where accuracy and discretion carried equal weight.</p>
+      </div>
+    </div>
+    <div class="entry">
+      <span class="entry-mark">HEAD OF STATE</span>
+      <div>
+        <h3>Interpreter to the President of Israel</h3>
+        <p>Provided interpretation for the President of Israel, a role requiring composure, precision, and fluency in the formal registers of both Hebrew and English.</p>
+      </div>
+    </div>
+    <div class="entry">
+      <span class="entry-mark">COURTS</span>
+      <div>
+        <h3>Courtroom &amp; Deposition Practice</h3>
+        <p>A sustained practice interpreting for courtroom proceedings and depositions, trusted by attorneys for consistency across long, high-stakes sessions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="languages">
+  <div class="section-head">
+    <span class="section-num">§ III</span>
+    <h2 class="section-title">Working <em>languages</em></h2>
+  </div>
+  <div class="lang-grid">
+    <div class="lang-card">
+      <span class="lang-script" style="font-family:'Fraunces',serif;">Aa</span>
+      <p class="lang-name">English</p>
+      <p class="lang-note">Native fluency</p>
+    </div>
+    <div class="lang-card">
+      <span class="lang-script">יידיש</span>
+      <p class="lang-name">Yiddish</p>
+      <p class="lang-note">Native fluency</p>
+    </div>
+    <div class="lang-card">
+      <span class="lang-script">עברית</span>
+      <p class="lang-name">Hebrew</p>
+      <p class="lang-note">Diplomatic &amp; legal register</p>
+    </div>
+    <div class="lang-card">
+      <span class="lang-script">Polski</span>
+      <p class="lang-name">Polish</p>
+      <p class="lang-note">Diplomatic &amp; legal register</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-head">
+    <span class="section-num">§ IV</span>
+    <h2 class="section-title">Request an <em>interpreter</em></h2>
+  </div>
+  <div class="contact-wrap">
+    <div class="contact-copy">
+      <p>For courtroom dates, depositions, document translation, or delegation support, reach out with the language pair, the setting, and the date — availability for courtroom and deposition work is often booked ahead, so earlier is better.</p>
+      <p>Based in New York, available for assignments locally and, for diplomatic and conference work, further afield.</p>
+    </div>
+    <div class="stamp-card">
+      <div class="field">
+        <span class="field-label">Email</span>
+        <span class="field-value placeholder">[email protect­ed — add your email]</span>
+      </div>
+      <div class="field">
+        <span class="field-label">Phone</span>
+        <span class="field-value placeholder">[add your phone number]</span>
+      </div>
+      <div class="field">
+        <span class="field-label">Location</span>
+        <span class="field-value">New York, NY</span>
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <span class="field-label">Languages</span>
+        <span class="field-value">English · Yiddish · Hebrew · Polish</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Ruth Kohn Translations © 2026</p>
+  <p>Certified Court Interpreter &amp; Translator</p>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const navList = document.querySelector('nav ul');
+  toggle.addEventListener('click', () => {
+    const open = navList.style.display === 'flex';
+    navList.style.display = open ? 'none' : 'flex';
+    navList.style.flexDirection = 'column';
+    navList.style.position = 'fixed';
+    navList.style.top = '64px';
+    navList.style.right = '6vw';
+    navList.style.background = '#14171f';
+    navList.style.border = '1px solid rgba(233,226,207,0.16)';
+    navList.style.padding = '1.2rem 1.6rem';
+    navList.style.gap = '1rem';
+  });
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.exhibit, .entry, .lang-card');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('reveal');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
